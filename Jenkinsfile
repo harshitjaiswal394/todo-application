@@ -4,7 +4,7 @@ pipeline {
 agent any
 
 environment {
-    DOCKER_IMAGE = "your-dockerhub-username/todo-application:latest"
+    DOCKER_IMAGE = "harshitjaiswal394/todo-application:latest"
 }
 
 stages {
