@@ -23,7 +23,7 @@ stages {
 
     stage('Build Docker Image') {
         steps {
-            sh 'sudo docker build -t $DOCKER_IMAGE .'
+            sh 'docker build -t $DOCKER_IMAGE .'
         }
     }
 
@@ -37,7 +37,7 @@ stages {
 
                 sh '''
                 echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                sudo docker push $DOCKER_IMAGE
+                docker push $DOCKER_IMAGE
                 '''
             }
         }
@@ -46,21 +46,21 @@ stages {
     stage('Deploy using Docker Compose') {
         steps {
             sh '''
-            sudo docker compose down
-            sudo docker compose up -d
+            docker compose down
+            docker compose up -d
             '''
         }
     }
 
     stage('Verify Containers') {
         steps {
-            sh 'sudo docker ps'
+            sh 'docker ps'
         }
     }
 
     stage('Clean Workspace') {
         steps {
-            sh 'sudo rm -rf *'
+            sh 'rm -rf *'
         }
     }
 }
