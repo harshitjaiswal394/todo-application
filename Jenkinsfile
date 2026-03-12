@@ -12,7 +12,7 @@ stages {
     stage('Clone Repository') {
         steps {
             git branch: 'master',
-            url: 'https://github.com/your-username/todo-application.git'
+            url: 'https://github.com/harshitjaiswal394/todo-application.git'
         }
     }
 
